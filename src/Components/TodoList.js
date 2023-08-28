@@ -1,16 +1,24 @@
-import { styled } from "styled-components";
-import {useContext, useState} from 'react';
-import { TodosContext } from "../App";
+import { styled } from 'styled-components';
 
 const TodoListStyles = styled.div`
-    background-color: green;
-`
+  background-color: green;
+  text-align: left;
+`;
 
-export default function TodoList() {
-    const todos = useContext(TodosContext)
-    return (
-        <TodoListStyles>
-            <p>Hi! I'm the todo list component</p>
-        </TodoListStyles>
-    )
+export default function TodoList({ todos }) {
+  return (
+    <TodoListStyles>
+      {todos.map((todo, index) => (
+        <ul key={index}>
+          <li>
+            <em>{todo.title}</em>
+          </li>
+          <ul>
+            <li>Due date: {todo.due}</li>
+            <li>Details: {todo.description}</li>
+          </ul>
+        </ul>
+      ))}
+    </TodoListStyles>
+  );
 }

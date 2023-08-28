@@ -1,12 +1,13 @@
-import { styled } from "styled-components"
+import { styled } from 'styled-components';
 
 const HeaderStyles = styled.div`
-    background-color: red;
-`
+  background-color: red;
+`;
 
 export default function Header() {
-    return (
+  return (
     <HeaderStyles>
-        <h2>Hi! I'm the header element!</h2>
-    </HeaderStyles>)
+      <h2>Hi! I'm the header element!</h2>
+    </HeaderStyles>
+  );
 }

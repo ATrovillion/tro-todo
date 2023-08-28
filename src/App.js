@@ -1,27 +1,34 @@
-import Nav from './Components/Nav';
 import './App.css';
+import Nav from './Components/Nav';
 import Header from './Components/Header';
 import TodoList from './Components/TodoList';
+import CreateNewTodo from './Components/CreateNewTodo';
 
-const TodosContext = createContext({
-  todo1: {
-    title: "Clean house",
-    due: "November 22, 2023",
-    details: "house is a mess; clean it!"
+const todos = [
+  {
+    title: 'clean my room',
+    due: 'November 22, 2024',
+    description: 'room is dirty; clean it!',
   },
-  todo2: {
-    title: "pay bills",
-    due: "September 1, 2023",
-    details: "so many bills to pay; pay them!"
-  }
-});
+  {
+    title: 'pay taxes',
+    due: 'April 15, 2024',
+    description: 'Government needs my money. Pay taxes!',
+  },
+  {
+    title: 'have doctor look at embarrassing rash',
+    due: 'August 24, 2023',
+    description: 'Rash is gross! Get it looked at!',
+  },
+];
 
 function App() {
   return (
     <div className="App">
-      <Nav />
       <Header />
-        <TodoList />
+      <Nav />
+      <CreateNewTodo />
+      <TodoList todos={todos} />
     </div>
   );
 }

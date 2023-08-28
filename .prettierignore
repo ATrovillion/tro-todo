@@ -1,0 +1,2 @@
+#    "prettier.disableLanguages": ["javascript", "javascriptreact"]
+**/*.js
