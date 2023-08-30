@@ -23,9 +23,14 @@ export default function useForm(initial = {
     });
   }
 
+  function clearForm() {
+    setInputs(initial);
+  }
+
   // return the things we want to surface from this custom hook
   return {
     inputs,
     handleChange,
+    clearForm,
   };
 }

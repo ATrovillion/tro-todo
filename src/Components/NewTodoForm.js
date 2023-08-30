@@ -1,7 +1,12 @@
 import useForm from '../lib/useForm';
 
 export default function NewTodoForm({ createTodo }) {
-  const { inputs, handleChange } = useForm();
+  const { inputs, handleChange, clearForm } = useForm();
+
+  const handleSubmit = () => {
+    createTodo(inputs);
+    clearForm();
+  };
 
   return (
     <form>
@@ -40,7 +45,7 @@ export default function NewTodoForm({ createTodo }) {
             onChange={handleChange}
           />
         </label>
-        <button type="button" onClick={() => createTodo(inputs)}>Submit</button>
+        <button type="button" onClick={handleSubmit}>Submit</button>
       </fieldset>
     </form>
   );

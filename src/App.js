@@ -15,10 +15,6 @@ const initial = [];
 function App() {
   const [newTodos, setNewTodos] = useState(initial);
 
-  const clearForm = () => {
-    console.log('clearForm called!');
-  };
-
   const createTodo = (inputs) => {
     const { task, due, details } = inputs;
     setNewTodos([
@@ -26,8 +22,6 @@ function App() {
       ...newTodos,
       { task, due, description: details },
     ]);
-
-    clearForm();
   };
 
   return (
