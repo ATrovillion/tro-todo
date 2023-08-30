@@ -15,8 +15,7 @@ export default function useForm(initial = {
   // }
 
   function handleChange(e) {
-    const { value, name, type } = e.target;
-    console.log(type);
+    const { value, name } = e.target;
     setInputs({
       // copy existing state
       ...inputs,

@@ -1,13 +1,10 @@
 import useForm from '../lib/useForm';
 
-export default function NewTodoForm() {
+export default function NewTodoForm({ createTodo }) {
   const { inputs, handleChange } = useForm();
-  function submitHandler(e) {
-    e.preventDefault();
-    console.log(inputs);
-  }
+
   return (
-    <form onSubmit={submitHandler}>
+    <form>
       <fieldset>
         <label htmlFor="task">
           Task
@@ -43,7 +40,7 @@ export default function NewTodoForm() {
             onChange={handleChange}
           />
         </label>
-        <button type="submit">Submit</button>
+        <button type="button" onClick={() => createTodo(inputs)}>Submit</button>
       </fieldset>
     </form>
   );

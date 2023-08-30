@@ -1,35 +1,42 @@
 import './App.css';
+import { useState } from 'react';
+import { styled } from 'styled-components';
 import Nav from './Components/Nav';
 import Header from './Components/Header';
 import TodoList from './Components/TodoList';
 import CreateNewTodo from './Components/CreateNewTodo';
 
-const todos = [
-  {
-    title: 'clean my room',
-    due: 'November 22, 2024',
-    description: 'room is dirty; clean it!',
-  },
-  {
-    title: 'pay taxes',
-    due: 'April 15, 2024',
-    description: 'Government needs my money. Pay taxes!',
-  },
-  {
-    title: 'have doctor look at embarrassing rash',
-    due: 'August 24, 2023',
-    description: 'Rash is gross! Get it looked at!',
-  },
-];
+const PageStyles = styled.div`
+  font-family: 'Roboto Condensed', sans-serif;
+`;
+
+const initial = [];
 
 function App() {
+  const [newTodos, setNewTodos] = useState(initial);
+
+  const clearForm = () => {
+    console.log('clearForm called!');
+  };
+
+  const createTodo = (inputs) => {
+    const { task, due, details } = inputs;
+    setNewTodos([
+      // copy existing state
+      ...newTodos,
+      { task, due, description: details },
+    ]);
+
+    clearForm();
+  };
+
   return (
-    <div className="App">
+    <PageStyles className="App">
       <Header />
       <Nav />
-      <CreateNewTodo />
-      <TodoList todos={todos} />
-    </div>
+      <CreateNewTodo createTodo={createTodo}/>
+      <TodoList todos={newTodos} />
+    </PageStyles>
   );
 }
 

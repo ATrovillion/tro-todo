@@ -1,9 +1,9 @@
 import NewTodoForm from './NewTodoForm';
 
-export default function CreateNewTodo() {
+export default function CreateNewTodo({ createTodo }) {
   return (
     <div>
-      <NewTodoForm />
+      <NewTodoForm createTodo={createTodo}/>
     </div>
   );
 }

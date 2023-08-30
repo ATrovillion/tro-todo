@@ -2,6 +2,8 @@ import { styled } from 'styled-components';
 
 const HeaderStyles = styled.div`
   background-color: red;
+  color: white;
+  
 `;
 
 export default function Header() {
