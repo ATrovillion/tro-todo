@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { styled } from 'styled-components';
 
 const TodoListStyles = styled.div`
@@ -9,14 +8,15 @@ const TodoListStyles = styled.div`
   }
 `;
 
-export default function TodoList({ todos }) {
+export default function TodoList(props) {
+  const { todos } = props;
   return (
     <TodoListStyles>
       {
       todos.map((todo, index) => (
         <ul key={index}>
           <li>
-            <input type="checkbox" />
+            <input name="checkbox" type="checkbox" />
             <em>{todo.task}</em>
           </li>
           <ul>

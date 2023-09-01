@@ -1,35 +1,19 @@
 import './App.css';
-import { useState } from 'react';
 import { styled } from 'styled-components';
 import Nav from './Components/Nav';
 import Header from './Components/Header';
-import TodoList from './Components/TodoList';
-import CreateNewTodo from './Components/CreateNewTodo';
+import Todo from './Components/Todo';
 
 const PageStyles = styled.div`
   font-family: 'Roboto Condensed', sans-serif;
 `;
 
-const initial = [];
-
 function App() {
-  const [newTodos, setNewTodos] = useState(initial);
-
-  const createTodo = (inputs) => {
-    const { task, due, details } = inputs;
-    setNewTodos([
-      // copy existing state
-      ...newTodos,
-      { task, due, description: details },
-    ]);
-  };
-
   return (
     <PageStyles className="App">
       <Header />
       <Nav />
-      <CreateNewTodo createTodo={createTodo}/>
-      <TodoList todos={newTodos} />
+      <Todo />
     </PageStyles>
   );
 }
