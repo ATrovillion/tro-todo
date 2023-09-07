@@ -45,7 +45,9 @@ export default function NewTodoForm({ createTodo }) {
             onChange={handleChange}
           />
         </label>
-        <button type="button" onClick={handleSubmit}>Submit</button>
+        <button type="button" onClick={handleSubmit}>
+          Submit
+        </button>
       </fieldset>
     </form>
   );

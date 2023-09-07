@@ -1,10 +1,12 @@
 import { useState } from 'react';
 
-export default function useForm(initial = {
-  task: '',
-  due: '',
-  details: '',
-}) {
+export default function useForm(
+  initial = {
+    task: '',
+    due: '',
+    details: '',
+  },
+) {
   // create state object for inputs
   const [inputs, setInputs] = useState(initial);
 
