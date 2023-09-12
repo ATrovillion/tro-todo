@@ -6,9 +6,12 @@ const NavStyles = styled.ul`
   padding: 0;
   overflow: hidden;
   background-color: #333;
+
   li {
     float: left;
   }
+
+  
 
   li a {
     display: inline-block;
@@ -25,6 +28,13 @@ const NavStyles = styled.ul`
   .active {
     background-color: red;
   }
+
+  .add-todo {
+    color: white;
+    font-size: 1.5em;
+    padding-top: 8px;
+    padding-left: 5px;
+  }
 `;
 
 export default function Nav() {
@@ -32,6 +42,7 @@ export default function Nav() {
     <NavStyles>
       <li><a href="#home" className="active">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li className="add-todo"><b>&#43;</b></li>
     </NavStyles>
   );
 }

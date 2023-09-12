@@ -3,7 +3,7 @@ import IndividualTodo from './IndividualTodo';
 
 const TodoListStyles = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto auto;
   margin: auto;
   row-gap: 30px;
   justify-content: space-evenly;
@@ -15,7 +15,7 @@ export default function TodoList(props) {
     <TodoListStyles>
       {todos.map((todo, index) => {
         const uniqueKey = `td${index}`;
-        return <IndividualTodo key={uniqueKey} todo={todo} markComplete={markComplete} />;
+        return <IndividualTodo key={uniqueKey} todo={todo} markComplete={() => markComplete(index)} />;
       })}
     </TodoListStyles>
   );

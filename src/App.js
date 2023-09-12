@@ -8,12 +8,13 @@ const PageStyles = styled.div`
   font-family: 'Roboto Condensed', sans-serif;
 `;
 
+
 function App() {
   return (
     <PageStyles className="App">
       <Header />
       <Nav />
-      <Todo />
+      <Todo/>
     </PageStyles>
   );
 }

@@ -1,9 +1,16 @@
-import { useState } from 'react';
+import { useState, useEffect} from 'react';
 import CreateNewTodo from './CreateNewTodo';
 import TodoList from './TodoList';
 
 export default function Todo() {
-  const [todos, setTodos] = useState([]);
+
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos');
+    const parsedTodos = JSON.parse(savedTodos);
+    return parsedTodos || [];
+  });
+
+  useEffect(() => {localStorage.setItem('todos', JSON.stringify(todos))}, [todos]);
   const createTodo = (inputs) => {
     const { task, due, details } = inputs;
     setTodos([
@@ -14,15 +21,16 @@ export default function Todo() {
       },
     ]);
   };
-  const markComplete = (e, index) => {
-    e.target.checked = false;
+
+  const markComplete = (index) => {
     todos.splice(index, 1);
-    const newTodos = todos.map((todo) => ({ isComplete: false, ...todo }));
+    const newTodos = todos.map((todo) => ({ ...todo, isComplete: false }));
 
     setTodos([
       ...newTodos,
     ]);
   };
+
   return (
     <div>
       <CreateNewTodo createTodo={createTodo} />
