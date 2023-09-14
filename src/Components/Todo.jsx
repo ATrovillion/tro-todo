@@ -1,14 +1,12 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useContext} from 'react';
+
 import CreateNewTodo from './CreateNewTodo';
 import TodoList from './TodoList';
+import TodoContext from './TodoContext';
 
 export default function Todo() {
 
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem('todos');
-    const parsedTodos = JSON.parse(savedTodos);
-    return parsedTodos || [];
-  });
+  const todos = useContext(TodoContext);
 
   useEffect(() => {localStorage.setItem('todos', JSON.stringify(todos))}, [todos]);
   const createTodo = (inputs) => {

@@ -1,4 +1,6 @@
+import { useContext } from 'react';
 import { styled } from 'styled-components';
+import TodoContext from './TodoContext';
 
 const NavStyles = styled.ul`
   list-style-type: none;
@@ -38,11 +40,13 @@ const NavStyles = styled.ul`
 `;
 
 export default function Nav() {
+  const todos = useContext(TodoContext)
   return (
     <NavStyles>
       <li><a href="#home" className="active">Home</a></li>
       <li><a href="#about">About</a></li>
       <li className="add-todo"><b>&#43;</b></li>
+      <li>{todos.length}</li>
     </NavStyles>
   );
 }
